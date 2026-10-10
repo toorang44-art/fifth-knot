@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fifth Knot | Custom Tufted Rugs in Chittagong</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  /* logo থেকে নেওয়া রঙ: কালো জমিন, ক্রিম সুতা, সরষে-হলুদ, টিল স্প্ল্যাটার */
+  --ink:#0d0c0b;
+  --cream:#f3ead2;
+  --gold:#e3a826;
+  --teal:#1f8a9c;
+  --muted:rgba(243,234,210,.68);
+  --glass:rgba(243,234,210,.07);
+  --glass-line:rgba(243,234,210,.18);
+  --radius:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans','Hind Siliguri',sans-serif;
+  background:var(--ink);
+  color:var(--cream);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+/* ভেসে থাকা রঙিন আলো — glass-এর পেছনে এগুলোই ঝাপসা হয়ে দেখা যায় */
+body::before,body::after{
+  content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.45;pointer-events:none;
+}
+body::before{width:520px;height:520px;background:var(--teal);top:-120px;left:-160px;animation:drift 18s ease-in-out infinite alternate}
+body::after{width:460px;height:460px;background:var(--gold);bottom:-140px;right:-140px;opacity:.28;animation:drift 22s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(60px,40px)}}
+
+/* শুধু Fifth Knot নামটাই লোগোর ফন্টে */
+.wordmark{font-family:'Permanent Marker',cursive;font-weight:400;letter-spacing:.5px;display:inline-block;transform:skewX(-6deg)}
+h2,h3,h4{font-family:'Outfit','Noto Serif Bengali',serif;font-weight:700}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* সুতার সেলাইয়ের মতো ডটেড বর্ডার + glass */
+.glass{
+  background:var(--glass);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border:1px solid var(--glass-line);
+  border-radius:var(--radius);
+  box-shadow:0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.12);
+  position:relative;
+}
+.stitch::after{
+  content:"";position:absolute;inset:7px;border:1.5px dashed rgba(227,168,38,.45);border-radius:calc(var(--radius) - 7px);pointer-events:none;
+}
+
+/* Header */
+header{position:sticky;top:12px;z-index:1000;padding:0 16px}
+.nav-wrapper{
+  max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px 10px 22px;border-radius:60px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-size:26px;color:var(--cream)}
+.logo span{color:var(--gold)}
+.logo img{width:46px;height:46px;border-radius:50%;box-shadow:0 0 0 2px rgba(227,168,38,.6)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-social{display:flex;gap:8px}
+.nav-social a{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(243,234,210,.1);border:1px solid var(--glass-line);transition:transform .25s,background .25s,color .25s}
+.nav-social a:hover{transform:translateY(-3px);background:var(--gold);color:var(--ink)}
+.btn-header,.btn-primary,.btn-pdf{
+  display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);
+  border-radius:50px;font-weight:700;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s,background .25s;
+  font-family:'Poppins','Hind Siliguri',sans-serif;
+}
+.btn-header{padding:10px 22px;font-size:15px}
+.btn-primary{padding:16px 36px;font-size:18px;box-shadow:0 8px 30px rgba(227,168,38,.35)}
+.btn-header:hover,.btn-primary:hover,.btn-pdf:hover{transform:translateY(-3px);background:var(--cream);box-shadow:0 12px 34px rgba(243,234,210,.28)}
+
+/* Hero */
+.hero{padding:70px 0 50px}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:40px;align-items:center}
+.hero-tag{display:inline-block;padding:6px 18px;border-radius:30px;font-size:14px;font-weight:600;margin-bottom:18px;color:var(--gold)}
+.hero-title{font-size:clamp(52px,8vw,92px);line-height:1.1;color:var(--cream);margin-bottom:14px;text-shadow:4px 4px 0 rgba(31,138,156,.75)}
+.hero-tagline{color:var(--gold);font-size:21px;font-weight:600;margin-bottom:18px}
+.hero-bio{color:var(--muted);font-size:18px;margin-bottom:32px;max-width:540px}
+.hero-logo{padding:14px;transform:rotate(2deg);animation:rise .9s ease both}
+.hero-logo img{display:block;width:100%;border-radius:calc(var(--radius) - 8px)}
+@keyframes rise{from{opacity:0;transform:translateY(28px) rotate(2deg)}}
+
+/* Marquee */
+.ticker{overflow:hidden;border-block:1px solid var(--glass-line);background:rgba(227,168,38,.08);padding:14px 0;margin:30px 0 10px}
+.ticker-track{display:flex;gap:44px;width:max-content;animation:scroll 28s linear infinite;font-family:'Outfit',sans-serif;font-weight:600;font-size:21px;color:var(--cream)}
+.ticker-track span:nth-child(3n+1){color:var(--gold)}
+.ticker-track span:nth-child(3n+2){color:var(--teal)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:80px 0}
+.section-header{text-align:center;max-width:650px;margin:0 auto 48px}
+.section-title{font-size:clamp(28px,4vw,38px);margin-bottom:10px}
+.section-subtitle{color:var(--muted);font-size:16px}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:28px}
+.category-icon,.feature-icon{width:62px;height:62px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px;background:linear-gradient(135deg,rgba(227,168,38,.3),rgba(31,138,156,.3));color:var(--gold);border:1px solid var(--glass-line)}
+
+/* Products: বড় ক্যাটাগরি সিলেক্টর + গ্যালারি */
+.products{padding:100px 0}
+.wide{max-width:1280px}
+.cat-tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:28px}
+.cat-tab{font:inherit;color:var(--cream);cursor:pointer;text-align:center;padding:38px 26px 30px;display:flex;flex-direction:column;align-items:center;transition:transform .3s,border-color .3s,background .3s,box-shadow .3s}
+.cat-tab .category-icon{width:76px;height:76px;font-size:32px;border-radius:22px;margin-bottom:18px}
+.cat-tab h3{font-size:22px;margin-bottom:6px}
+.cat-tab small{color:var(--muted);font-size:14px}
+.cat-tab:hover{transform:translateY(-5px)}
+.cat-tab.active{border-color:var(--gold);background:rgba(227,168,38,.14);box-shadow:0 14px 50px rgba(227,168,38,.22),inset 0 1px 0 rgba(255,255,255,.14)}
+.cat-tab.active .category-icon{background:var(--gold);color:var(--ink)}
+.showcase{padding:40px;min-height:460px}
+.showcase-head{display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:28px}
+.showcase-head h3{font-size:28px}
+.gallery{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:20px}
+.tile{aspect-ratio:1;border-radius:18px;overflow:hidden;border:1px solid var(--glass-line);background:rgba(13,12,11,.4);padding:0;cursor:pointer;animation:pop .45s ease both}
+.tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.tile:hover img{transform:scale(1.07)}
+.tile.empty{cursor:default;border:1px dashed rgba(227,168,38,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:14px}
+.tile.empty i{font-size:28px;color:var(--gold);opacity:.7}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}}
+.lb{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;background:rgba(13,12,11,.88);backdrop-filter:blur(8px);padding:24px}
+.lb.open{display:flex}
+.lb-box{max-width:min(92vw,900px);text-align:center}
+.lb-box img{max-width:100%;max-height:74vh;border-radius:18px;margin-bottom:18px}
+.lb-x{position:absolute;top:18px;right:22px;font-size:34px;line-height:1;background:none;border:none;color:var(--cream);cursor:pointer}
+
+/* Ideas: ক্যাটাগরির বাংলা বিবরণ, আলাদা সেকশনে */
+.idea-list{display:flex;flex-direction:column;gap:24px}
+.idea{display:flex;align-items:center;gap:28px;padding:30px 38px;width:86%;overflow:hidden}
+.idea:nth-child(even){margin-left:auto}
+.idea .category-icon{flex:none;width:84px;height:84px;font-size:34px;border-radius:50%;margin:0}
+.idea h3{font-size:22px;margin-bottom:6px}
+.idea p{font-family:'Noto Serif Bengali','Hind Siliguri',serif;color:var(--muted);font-size:17px;line-height:1.9}
+.idea .bg{position:absolute;right:24px;bottom:-16px;font-size:110px;color:var(--gold);opacity:.07}
+
+/* Features */
+/* Steps */
+.steps-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:24px}
+.step-card{padding:28px 24px}
+.step-number{
+  width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-bottom:18px;
+  background:var(--teal);color:var(--cream);font-weight:700;font-size:18px;box-shadow:0 0 0 5px rgba(31,138,156,.25);
+}
+.step-card h4{font-size:18px;margin-bottom:8px}
+.step-card p{font-size:14px;color:var(--muted)}
+.note-wrapper{text-align:center;margin-top:40px}
+.advance-note{display:inline-block;padding:14px 26px;border-radius:50px;font-weight:600;color:var(--gold)}
+
+/* Features */
+.feature-item{padding:32px;text-align:center}
+.feature-icon{margin:0 auto 18px}
+.feature-item h3{font-size:20px;margin-bottom:8px}
+.feature-item p{color:var(--muted);font-size:15px}
+
+.brand-banner{display:grid;grid-template-columns:auto 1fr;gap:40px;align-items:center;padding:40px 48px;background:linear-gradient(120deg,rgba(227,168,38,.16),rgba(31,138,156,.2))}
+.brand-banner h2{font-size:30px;margin-bottom:10px}
+.brand-banner p{color:var(--muted);margin-bottom:22px;max-width:520px}
+.badge{position:relative;width:200px;height:200px;margin:14px}
+.badge img{width:100%;height:100%;border-radius:50%;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.badge::before{content:"";position:absolute;inset:-14px;border:2px dashed var(--gold);border-radius:50%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Care guide */
+.care-section{padding:60px 40px;background:linear-gradient(135deg,rgba(31,138,156,.28),rgba(227,168,38,.18))}
+.care-content{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;z-index:2}
+.care-text h2{font-size:32px;margin-bottom:14px}
+.care-text p{color:var(--muted);margin-bottom:22px}
+.care-list{list-style:none}
+.care-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:15px}
+.care-list i{color:var(--gold);margin-top:5px}
+.pdf-box{padding:38px;text-align:center;background:rgba(13,12,11,.45)}
+.pdf-box>i{font-size:56px;color:var(--gold);margin-bottom:14px}
+.btn-pdf{padding:15px 28px;font-size:16px}
+
+/* Social */
+.social-section{text-align:center}
+.social-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:760px;margin:32px auto 0}
+.social-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 18px;font-weight:600;transition:transform .25s,border-color .25s}
+.social-btn:hover{transform:translateY(-6px);border-color:var(--gold)}
+.social-btn .s-ico{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:6px;background:rgba(13,12,11,.5);border:1px solid var(--glass-line)}
+.social-btn small{color:var(--muted);font-weight:400;font-size:13px}
+.email-box{margin-top:30px;font-size:18px;color:var(--muted)}
+.email-box a{color:var(--gold);font-weight:600;text-decoration:underline}
+
+footer{padding:40px 0 20px;text-align:center;border-top:1px solid var(--glass-line)}
+.footer-slogan{font-family:'Outfit',sans-serif;font-style:italic;font-weight:500;font-size:18px;color:var(--gold);margin-bottom:18px}
+.copyright{font-size:14px;color:var(--muted)}
+
+@media (max-width:992px){
+  .hero-grid,.care-content,.brand-banner{grid-template-columns:1fr}
+  .brand-banner{text-align:center;justify-items:center;padding:36px 24px}
+  .brand-banner p{margin-inline:auto}
+  .hero-logo{max-width:420px;margin:0 auto}
+}
+@media (max-width:600px){
+  .nav-wrapper{padding:8px 10px 8px 14px}
+  .logo{font-size:21px}.logo img{width:38px;height:38px}
+  .nav-social{gap:6px}.nav-social a{width:34px;height:34px;font-size:14px}
+  .btn-text{display:none}.btn-header{padding:10px 13px}
+  section{padding:56px 0}
+  .btn-primary{width:100%;justify-content:center}
+  .care-section{padding:40px 20px}
+  .social-links{flex-direction:column}
+  .social-btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media (max-width:992px){.idea{width:100%}}
+@media (max-width:700px){
+  .cat-tabs{grid-template-columns:1fr;gap:14px}
+  .cat-tab{flex-direction:row;text-align:left;gap:16px;padding:20px}
+  .cat-tab .category-icon{margin:0;flex:none;width:60px;height:60px;font-size:26px}
+  .showcase{padding:22px}
+  .gallery{grid-template-columns:repeat(2,1fr);gap:12px}
+  .idea{padding:24px 20px;gap:18px}
+  .idea .category-icon{width:60px;height:60px;font-size:24px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper glass">
+    <a href="#" class="logo"><img src="fk%20logo%20circle.png" alt="Fifth Knot লোগো"><span class="wordmark">Fifth <span>Knot</span></span></a>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/fifth_knot" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@fifth.knot" target="_blank" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+      <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" class="btn-header">
+        <i class="fa-brands fa-facebook-messenger"></i><span class="btn-text">অর্ডার করুন</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="hero-tag glass">🧶 চট্টগ্রামের ১ম কাস্টম টাফটেড রাগ ব্র্যান্ড</span>
+      <h1 class="hero-title wordmark">Fifth Knot</h1>
+      <p class="hero-tagline">Bringing your art to life, knot by knot.</p>
+      <p class="hero-bio">আপনার ঘর, অফিস বা নিজের ব্র্যান্ডের জন্য আমরা তৈরি করি প্রিমিয়াম কাস্টম Brand Logo, Anime &amp; Gaming, Typography, Wall Art, Mirror &amp; Desk Rugs।</p>
+      <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" class="btn-primary">
+        <i class="fa-brands fa-facebook"></i> কাস্টম অর্ডার করুন
+      </a>
+    </div>
+    <div class="hero-logo glass stitch">
+      <img src="fk%20logo.jpg" alt="Fifth Knot — সুতার বুননে তৈরি লোগো, মুকুট ও টাফটিং গান সহ">
+    </div>
+  </div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track">
+    <span>Custom Logo Rugs</span><span>Anime &amp; Gaming</span><span>Typography</span><span>Wall Art</span><span>Mirror Frames</span><span>Desk Mats</span>
+    <span>Custom Logo Rugs</span><span>Anime &amp; Gaming</span><span>Typography</span><span>Wall Art</span><span>Mirror Frames</span><span>Desk Mats</span>
+  </div>
+</div>
+
+<section class="products" id="products">
+  <div class="container wide">
+    <div class="section-header">
+      <h2 class="section-title">প্রোডাক্ট ক্যাটাগরি</h2>
+      <p class="section-subtitle">যেটা পছন্দ সেটায় ট্যাপ করুন, নিচে সেই ক্যাটাগরির কাজগুলো দেখতে পাবেন।</p>
+    </div>
+    <div class="cat-tabs" role="tablist">
+      <button class="cat-tab glass stitch active" role="tab" aria-selected="true" data-cat="wall">
+        <span class="category-icon"><i class="fa-solid fa-palette"></i></span>
+        <h3>Custom Tufted Rugs &amp; Wall Art</h3><small class="cat-count"></small>
+      </button>
+      <button class="cat-tab glass stitch" role="tab" aria-selected="false" data-cat="mirror">
+        <span class="category-icon"><i class="fa-solid fa-spray-can-sparkles"></i></span>
+        <h3>Tufted Mirror Frames</h3><small class="cat-count"></small>
+      </button>
+      <button class="cat-tab glass stitch" role="tab" aria-selected="false" data-cat="desk">
+        <span class="category-icon"><i class="fa-solid fa-desktop"></i></span>
+        <h3>Desk Mats &amp; Coasters</h3><small class="cat-count"></small>
+      </button>
+    </div>
+    <div class="showcase glass" aria-live="polite">
+      <div class="showcase-head">
+        <h3 id="sc-title"></h3>
+        <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" class="btn-primary" style="font-size:16px;padding:14px 30px"><i class="fa-brands fa-facebook-messenger"></i> কাস্টম অর্ডার করুন</a>
+      </div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </div>
+</section>
+
+<section class="ideas">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">যা যা বানিয়ে দিই আমরা</h2>
+      <p class="section-subtitle">আপনার আইডিয়া যা-ই হোক, সুতার বুননে সেটাকে বাস্তব করি।</p>
+    </div>
+    <div class="idea-list">
+      <div class="idea glass stitch"><i class="fa-solid fa-palette bg"></i><div class="category-icon"><i class="fa-solid fa-palette"></i></div><div><h3>Custom Tufted Rugs &amp; Wall Art</h3><p>আপনার প্রিয় ক্যারেক্টার, এনিমে, ব্র্যান্ড লোগো বা টাইপোগ্রাফি দিয়ে ঘরের দেয়াল ও ফ্লোর সাজান।</p></div></div>
+      <div class="idea glass stitch"><i class="fa-solid fa-spray-can-sparkles bg"></i><div class="category-icon"><i class="fa-solid fa-spray-can-sparkles"></i></div><div><h3>Tufted Mirror Frames</h3><p>সাধারন আয়নাকে দিন ইউনিক ও নান্দনিক লুক। কাস্টম শেপ ও কালার কম্বিনেশনে তৈরি টাফটেড মিরর ফ্রেম।</p></div></div>
+      <div class="idea glass stitch"><i class="fa-solid fa-desktop bg"></i><div class="category-icon"><i class="fa-solid fa-desktop"></i></div><div><h3>Desk Mats &amp; Coasters</h3><p>ওয়ার্কস্টেশন ও ডেসকের সৌন্দর্য বাড়াতে কাস্টম সাইজ ডেস্ক ম্যাট এবং নান্দনিক কোস্টার।</p></div></div>
+    </div>
+  </div>
+</section>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true">
+  <div class="lb-box"><img id="lb-img" alt=""><a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" class="btn-primary" style="font-size:16px;padding:14px 30px"><i class="fa-brands fa-facebook-messenger"></i> এরকম অর্ডার করুন</a></div>
+  <button class="lb-x" aria-label="বন্ধ করুন">&times;</button>
+</div>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">কীভাবে অর্ডার করবেন?</h2>
+      <p class="section-subtitle">কাস্টম ডিজাইন জমা দেওয়া থেকে ডেলিভারি পর্যন্ত ৪টি সহজ ধাপ</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card glass"><div class="step-number">১</div><h4>ডিজাইন শেয়ার করুন</h4><p>আপনার পছন্দের যেকোনো ছবি, এনিমে আর্ট বা লোগোর স্কেচ আমাদের ফেসবুক পেজে মেসেজ করে পাঠান।</p></div>
+      <div class="step-card glass"><div class="step-number">২</div><h4>সাইজ ও কালার কনফার্ম করুন</h4><p>আপনার স্পেস অনুযায়ী সঠিক সাইজ, সুতার শেড এবং বাজেট কনফার্ম করুন।</p></div>
+      <div class="step-card glass"><div class="step-number">৩</div><h4>হ্যান্ডক্রাফটিং প্রসেস</h4><p>শতভাগ হাতে নিখুঁতভাবে টাফটিং, শেইপিং এবং নিবিড় কেয়ারের মাধ্যমে তৈরি হবে আপনার রাগ।</p></div>
+      <div class="step-card glass"><div class="step-number">৪</div><h4>হোম ডেলিভারি</h4><p>যত্নসহকারে প্যাক করে নিরাপদে আপনার দরজায় পৌঁছে দেওয়া হবে।</p></div>
+    </div>
+    <div class="note-wrapper">
+      <div class="advance-note glass"><i class="fa-solid fa-circle-info"></i> নোট: অর্ডার কনফার্ম করার জন্য ৩০% অগ্রিম (30% advance) প্রদান করতে হবে।</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">কেন আমাদের রাগ বেছে নেবেন?</h2>
+      <p class="section-subtitle">আমাদের প্রতিটি প্রোডাক্টের মেটেরিয়াল ও ফিনিশিংয়ে থাকে সর্বোচ্চ গুণগত মান।</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item glass"><div class="feature-icon"><i class="fa-solid fa-feather-pointed"></i></div><h3>১০০% মিল্ক কটন ইয়ার্ন</h3><p>অত্যন্ত সফট, আরামদায়ক ও ১০০% প্রিমিয়াম Milk Cotton Yarn দিয়ে তৈরি।</p></div>
+      <div class="feature-item glass"><div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>প্রিমিয়াম ফিনিশিং</h3><p>নিখুঁত কাটিং, থ্রেড কার্ভিং এবং নান্দনিক শেইপিং এর মাধ্যমে চমৎকার লুক।</p></div>
+      <div class="feature-item glass"><div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>লং-লাস্টিং ডিউরেবিলিটি</h3><p>শক্তিশালী ব্যাকিং ও টেকসই সুতার কারণে দীর্ঘদিন নতুনত্বের উজ্জ্বলতা বজায় থাকে।</p></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="brand-banner glass">
+      <div class="badge"><img src="fk%20logo%20circle.png" alt="Fifth Knot সার্কেল লোগো"></div>
+      <div>
+        <h2>আপনার আর্ট, আমাদের সুতা</h2>
+        <p>স্কেচ, লোগো বা প্রিয় কোনো ক্যারেক্টার, যেটাই পাঠান, আমরা সেটাকে নিজের হাতে টাফটিং করে রাগে ফুটিয়ে তুলব।</p>
+        <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" class="btn-primary" style="font-size:16px;padding:14px 30px"><i class="fa-brands fa-facebook-messenger"></i> ডিজাইন পাঠান</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="care-section glass">
+      <div class="care-content">
+        <div class="care-text">
+          <h2>প্রোডাক্ট কেয়ার গাইডলাইন</h2>
+          <p>আপনার তৈরি কাস্টম রাগটি দীর্ঘদিন সুন্দর ও টেকসই রাখার সহজ নিয়মাবলী:</p>
+          <ul class="care-list">
+            <li><i class="fa-solid fa-check"></i><span><strong>ধুলোবালি পরিষ্কার:</strong> হালকা ব্রাশ বা কম পাওয়ারের ভ্যাকিউম ব্যবহার করুন।</span></li>
+            <li><i class="fa-solid fa-check"></i><span><strong>স্পট ক্লিনিং:</strong> হালকা দাগ লাগলে ভেজা সুতি কাপড় ও হালকা সাবানের পানি দিয়ে মুছে বাতাসে শুকাতে দিন।</span></li>
+            <li><i class="fa-solid fa-xmark" style="color:#ff8a8a"></i><span><strong>সাবধানতা:</strong> ওয়াশিং মেশিনে ধোবেন না বা অতিরিক্ত ভেজাবেন না।</span></li>
+          </ul>
+        </div>
+        <div class="pdf-box glass">
+          <i class="fa-solid fa-file-lines"></i>
+          <h3 style="margin-bottom:10px;font-size:22px">সম্পূর্ণ গাইড পান</h3>
+          <p style="margin-bottom:20px;font-size:14px;color:var(--muted)">আপনার রাগের দীর্ঘস্থায়িত্ব নিশ্চিত করতে আমাদের যত্ন নির্দেশিকা ডাউনলোড করুন।</p>
+          <button class="btn-pdf" onclick="downloadPDF()"><i class="fa-solid fa-download"></i> Download Care Guide</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social-section" style="padding-top:0">
+  <div class="container">
+    <h2 class="section-title">Follow us &amp; stay connected</h2>
+    <p class="section-subtitle">Follow us to stay updated on our latest handcrafted creations &amp; custom drops!</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" class="social-btn glass stitch"><span class="s-ico"><i class="fa-brands fa-facebook" style="color:#4c9bff"></i></span>Facebook<small>Fifth Knot</small></a>
+      <a href="https://www.instagram.com/fifth_knot" target="_blank" class="social-btn glass stitch"><span class="s-ico"><i class="fa-brands fa-instagram" style="color:#ff6b8b"></i></span>Instagram<small>@fifth_knot</small></a>
+      <a href="https://www.tiktok.com/@fifth.knot" target="_blank" class="social-btn glass stitch"><span class="s-ico"><i class="fa-brands fa-tiktok" style="color:var(--cream)"></i></span>TikTok<small>@fifth.knot</small></a>
+    </div>
+    <div class="email-box">
+      <i class="fa-solid fa-envelope" style="color:var(--gold)"></i> ইমেইল ঠিকানা:
+      <a href="mailto:fifthknotofficial@gmail.com">fifthknotofficial@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <img src="fk%20logo%20circle.png" alt="" style="width:64px;height:64px;border-radius:50%;margin-bottom:12px;box-shadow:0 0 0 2px rgba(227,168,38,.5)">
+    <p class="footer-slogan">Fifth Knot — Bringing your art to life, knot by knot.</p>
+    <div class="copyright">© 2026 Fifth Knot. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* ===== প্রোডাক্ট ছবি যোগ করার নিয়ম =====
+   ১) এই ফোল্ডারগুলোতে ছবি রাখুন, নাম দিন 1, 2, 3... (jpg/jpeg/png/webp):
+      images/wall-art/1.jpg      images/mirror-frames/1.jpg      images/desk-mats/1.jpg
+   ২) ছবি নিজে থেকেই সঠিক ক্যাটাগরিতে বসে যাবে, কোড বদলাতে হবে না।
+   ৩) অন্য নামের ছবি দিতে চাইলে নিচের extra তালিকায় পাথ লিখে দিন। */
+(function(){
+  const CATS={
+    wall:{title:'Custom Tufted Rugs & Wall Art',folder:'images/wall-art/',extra:[]},
+    mirror:{title:'Tufted Mirror Frames',folder:'images/mirror-frames/',extra:[]},
+    desk:{title:'Desk Mats & Coasters',folder:'images/desk-mats/',extra:[]}
+  };
+  const EXTS=['jpg','jpeg','png','webp'],MAX=60;
+  const gallery=document.getElementById('gallery'),title=document.getElementById('sc-title');
+  const lb=document.getElementById('lb'),lbImg=document.getElementById('lb-img');
+  let active='wall';
+
+  const probe=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(src);i.onerror=()=>r(null);i.src=src;});
+  async function find(c){
+    const list=[...c.extra];
+    for(let n=1;n<=MAX;n++){
+      let hit=null;
+      for(const e of EXTS){hit=await probe(c.folder+n+'.'+e);if(hit)break;}
+      if(!hit)break;
+      list.push(hit);
+    }
+    return list;
+  }
+  function render(){
+    const c=CATS[active];title.textContent=c.title;gallery.innerHTML='';
+    const imgs=c.images||[];
+    if(!imgs.length){
+      for(let i=0;i<6;i++){
+        const d=document.createElement('div');d.className='tile empty';d.style.animationDelay=i*50+'ms';
+        d.innerHTML='<i class="fa-regular fa-image"></i><span>ছবি শিগগিরই আসছে</span>';gallery.appendChild(d);
+      }
+      return;
+    }
+    imgs.forEach((src,i)=>{
+      const b=document.createElement('button');b.className='tile';b.style.animationDelay=Math.min(i,12)*40+'ms';
+      b.innerHTML='<img loading="lazy" alt="'+c.title+' '+(i+1)+'">';b.firstChild.src=src;
+      b.onclick=()=>{lbImg.src=src;lb.classList.add('open');};
+      gallery.appendChild(b);
+    });
+  }
+  document.querySelectorAll('.cat-tab').forEach(t=>{
+    t.onclick=()=>{
+      active=t.dataset.cat;
+      document.querySelectorAll('.cat-tab').forEach(x=>{x.classList.toggle('active',x===t);x.setAttribute('aria-selected',x===t)});
+      render();
+    };
+  });
+  const close=()=>lb.classList.remove('open');
+  lb.onclick=e=>{if(e.target===lb||e.target.closest('.lb-x'))close();};
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+
+  render();
+  Object.keys(CATS).forEach(async k=>{
+    const c=CATS[k];c.images=await find(c);
+    const tab=document.querySelector('.cat-tab[data-cat="'+k+'"] .cat-count');
+    tab.textContent=c.images.length?c.images.length.toLocaleString('bn-BD')+' টি ডিজাইন':'শিগগিরই আসছে';
+    if(k===active)render();
+  });
+})();
+</script>
+<script>
+function downloadPDF() {
+  const pdfContent = `==================================================
+FIFTH KNOT - PRODUCT CARE GUIDE
+Bringing your art to life, knot by knot.
+==================================================
+
+Thank you for choosing Fifth Knot! Here are simple steps to keep your custom rug fresh and long-lasting:
+
+1. DUST REMOVAL:
+   - Use a soft brush or a low-power vacuum cleaner regularly to remove surface dust.
+   - Do not pull loose threads; trim them carefully with scissors if needed.
+
+2. SPOT CLEANING:
+   - For light stains, wipe gently using a damp cotton cloth and mild soapy water.
+   - Let it dry naturally in a well-ventilated area.
+
+3. PRECAUTIONS:
+   - DO NOT wash in a washing machine or dry clean.
+   - Keep away from excessive moisture and direct prolonged sunlight to protect colors.
+
+Contact Us:
+Email: fifthknotofficial@gmail.com
+Instagram: @fifth_knot
+Facebook: Fifth Knot
+==================================================`;
+  const blob = new Blob([pdfContent], { type: "text/plain" });
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "FifthKnot_Care_Guide.txt";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
+</body>
+</html>
