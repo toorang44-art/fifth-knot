@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<!-- ===== SECURITY ===== -->
+<!-- Content Security Policy: শুধু নিচের তালিকার উৎস থেকে স্ক্রিপ্ট, স্টাইল, ফন্ট ও ছবি লোড হবে। অন্য কোনো বাইরের স্ক্রিপ্ট ঢোকানো যাবে না।
+     'unsafe-inline': পেজের নিজের ভেতরের স্ক্রিপ্ট/স্টাইল চলার জন্য দরকার। file: শুধু নিজের কম্পিউটারে ফাইল খুলে টেস্ট করার জন্য, অনলাইনে তোলার পর চাইলে মুছে দিতে পারেন। -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self' file:; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' file: data: blob: https://*.google-analytics.com https://*.googletagmanager.com; media-src 'self' file: blob:; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- নোট: নিচেরটা ব্রাউজার শুধু HTTP হেডার হিসেবে মানে (সঙ্গের _headers ফাইলে বসানো আছে)। এখানে রাখা হলো রেকর্ডের জন্য, কোনো ক্ষতি নেই। -->
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<!-- Anti-clickjacking: অন্য কোনো সাইট এই পেজকে নিজের ফ্রেমের ভেতরে ঢুকিয়ে রাখতে চাইলে পেজ লুকিয়ে যাবে।
+     (অন্য কোনো প্রিভিউ টুলের ভেতরে টেস্ট করতে গিয়ে পেজ ফাঁকা দেখালে নিচের true-কে false করুন) -->
+<script>
+(function(){
+  var BLOCK_FRAMING=true;
+  if(BLOCK_FRAMING&&window.top!==window.self){
+    document.documentElement.style.display='none';
+    try{window.top.location=window.self.location;}catch(e){}
+  }
+})();
+</script>
+<!-- ===== GOOGLE ANALYTICS (GA4) =====
+     G-JZE3KV055T হলো প্লেসহোল্ডার। নিজের Measurement ID পেলে নিচের দুই জায়গাতেই (src-এ আর config-এ) বদলে দিন। -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JZE3KV055T"></script>
+<script>
+  window.dataLayer=window.dataLayer||[];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js',new Date());
+  gtag('config','G-JZE3KV055T');
+</script>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Fifth Knot, চট্টগ্রামের ১ম কাস্টম টাফটেড রাগ ব্র্যান্ড। ব্র্যান্ড লোগো, এনিমে, গেমিং, ওয়াল ও ডেস্ক রাগ, ১০০% মিল্ক কটন ইয়ার্নে হাতে তৈরি।">
+<title>Fifth Knot | Custom Tufted Rugs in Chittagong</title>
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@500;600;700&family=Outfit:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Poppins:wght@500;600;700&family=Permanent+Marker&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{
+  /* logo থেকে নেওয়া রঙ: কালো জমিন, ক্রিম সুতা, সরষে-হলুদ, টিল স্প্ল্যাটার */
+  --ink:#0d0c0b;
+  --cream:#f3ead2;
+  --gold:#e3a826;
+  --teal:#1f8a9c;
+  --muted:rgba(243,234,210,.68);
+  --glass:rgba(243,234,210,.07);
+  --glass-line:rgba(243,234,210,.18);
+  --radius:22px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Plus Jakarta Sans','Hind Siliguri',sans-serif;
+  background:var(--ink);
+  color:var(--cream);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+/* ভেসে থাকা রঙিন আলো — glass-এর পেছনে এগুলোই ঝাপসা হয়ে দেখা যায় */
+body::before,body::after{
+  content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(90px);opacity:.45;pointer-events:none;
+}
+body::before{width:520px;height:520px;background:var(--teal);top:-120px;left:-160px;animation:drift 18s ease-in-out infinite alternate}
+body::after{width:460px;height:460px;background:var(--gold);bottom:-140px;right:-140px;opacity:.28;animation:drift 22s ease-in-out infinite alternate-reverse}
+@keyframes drift{to{transform:translate(60px,40px)}}
+
+/* শুধু Fifth Knot নামটাই লোগোর ফন্টে */
+.wordmark{font-family:'Permanent Marker',cursive;font-weight:400;letter-spacing:.5px;display:inline-block;transform:skewX(-6deg)}
+h2,h3,h4{font-family:'Outfit','Noto Serif Bengali',serif;font-weight:700}
+a{text-decoration:none;color:inherit}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.container{max-width:1140px;margin:0 auto;padding:0 24px}
+
+/* সুতার সেলাইয়ের মতো ডটেড বর্ডার + glass */
+.glass{
+  background:var(--glass);
+  backdrop-filter:blur(18px) saturate(140%);
+  -webkit-backdrop-filter:blur(18px) saturate(140%);
+  border:1px solid var(--glass-line);
+  border-radius:var(--radius);
+  box-shadow:0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.12);
+  position:relative;
+}
+.stitch::after{
+  content:"";position:absolute;inset:7px;border:1.5px dashed rgba(227,168,38,.45);border-radius:calc(var(--radius) - 7px);pointer-events:none;
+}
+
+/* Header */
+header{position:sticky;top:12px;z-index:1000;padding:0 16px}
+.nav-wrapper{
+  max-width:1140px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;
+  padding:10px 14px 10px 22px;border-radius:60px;
+}
+.logo{display:flex;align-items:center;gap:10px;font-size:26px;color:var(--cream)}
+.logo .wordmark{color:var(--cream)}
+.logo .wordmark span{color:var(--gold)}
+.logo img{width:46px;height:46px;border-radius:50%;box-shadow:0 0 0 2px rgba(227,168,38,.6)}
+.nav-right{display:flex;align-items:center;gap:10px}
+.nav-social{display:flex;gap:8px}
+.nav-social a{width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(243,234,210,.1);border:1px solid var(--glass-line);transition:transform .25s,background .25s,color .25s}
+.nav-social a:hover{transform:translateY(-3px);background:var(--gold);color:var(--ink)}
+.btn-primary,.btn-pdf{
+  display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:var(--ink);
+  border-radius:50px;font-weight:700;cursor:pointer;border:none;transition:transform .25s,box-shadow .25s,background .25s;
+  font-family:'Poppins','Hind Siliguri',sans-serif;
+}
+.btn-primary{padding:16px 36px;font-size:18px;box-shadow:0 8px 30px rgba(227,168,38,.35)}
+.btn-primary:hover,.btn-pdf:hover{transform:translateY(-3px);background:var(--cream);box-shadow:0 12px 34px rgba(243,234,210,.28)}
+
+/* Hero */
+.hero{padding:50px 0 30px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.hero-tag{display:inline-block;padding:6px 18px;border-radius:30px;font-size:14px;font-weight:600;margin-bottom:18px;color:var(--gold)}
+.hero-title{font-size:clamp(52px,8vw,92px);line-height:1.1;color:var(--cream);margin-bottom:14px;text-shadow:4px 4px 0 rgba(31,138,156,.75)}
+.hero-tagline{color:var(--gold);font-size:21px;font-weight:600;margin-bottom:18px}
+.hero-bio{color:var(--muted);font-size:18px;margin-bottom:32px;max-width:540px}
+.hero-logo{width:100%;max-width:340px;justify-self:end;padding:12px;transform:rotate(2deg);animation:rise .9s ease both}
+.hero-logo img{display:block;width:100%;border-radius:calc(var(--radius) - 8px)}
+@keyframes rise{from{opacity:0;transform:translateY(28px) rotate(2deg)}}
+
+/* Marquee: দুই লাইন, উল্টো দিকে চলে */
+.ticker{display:flex;flex-direction:column;gap:14px;overflow:hidden;margin:34px 0 10px;padding:18px 0;
+  border-block:1px solid var(--glass-line);background:linear-gradient(90deg,rgba(31,138,156,.14),rgba(227,168,38,.1),rgba(31,138,156,.14));
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.ticker-track{display:flex;gap:16px;width:max-content;animation:scroll 42s linear infinite}
+.ticker-track.rev{animation-direction:reverse;animation-duration:46s}
+.ticker:hover .ticker-track{animation-play-state:paused}
+.chip{display:inline-flex;align-items:center;gap:10px;padding:10px 24px;border-radius:50px;white-space:nowrap;
+  font-family:'Outfit',sans-serif;font-weight:600;font-size:19px;color:var(--cream);
+  background:var(--glass);border:1px solid var(--glass-line);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);
+  transition:transform .25s,background .25s,color .25s}
+.chip i{font-size:16px;color:var(--gold)}
+.chip:nth-child(3n+2) i{color:var(--teal)}
+.chip:hover{transform:translateY(-3px) scale(1.05);background:var(--gold);color:var(--ink)}
+.chip:hover i{color:var(--ink)}
+.rev .chip{background:transparent;border:1.5px dashed rgba(227,168,38,.5);font-size:17px}
+.rev .chip:hover{border-style:solid}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* Sections */
+section{padding:80px 0}
+.section-header{text-align:center;max-width:650px;margin:0 auto 48px}
+.section-title{font-size:clamp(28px,4vw,38px);margin-bottom:10px}
+.section-subtitle{color:var(--muted);font-size:16px}
+
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:28px}
+.category-icon,.feature-icon{width:62px;height:62px;border-radius:18px;display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:22px;background:linear-gradient(135deg,rgba(227,168,38,.3),rgba(31,138,156,.3));color:var(--gold);border:1px solid var(--glass-line)}
+
+/* Product Category Section (নতুন) */
+.wide{max-width:1280px}
+.pc-bar{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-bottom:16px}
+.pc-pill{font-family:'Outfit','Hind Siliguri',sans-serif;font-weight:600;font-size:16px;padding:11px 22px;border-radius:50px;border:1px solid var(--glass-line);background:var(--glass);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);color:var(--cream);cursor:pointer;transition:transform .25s,background .25s,color .25s,border-color .25s,box-shadow .25s}
+.pc-pill:hover{border-color:var(--gold);transform:translateY(-2px)}
+.pc-pill.active{background:var(--gold);color:var(--ink);border-color:var(--gold);box-shadow:0 8px 26px rgba(227,168,38,.35)}
+.pc-hint{text-align:center;color:var(--muted);font-size:16px}
+.pc-panel{display:grid;grid-template-rows:0fr;opacity:0;visibility:hidden;margin-top:14px;scroll-margin-top:96px;transition:grid-template-rows .55s ease,opacity .4s ease,visibility 0s .55s}
+.pc-panel.open{grid-template-rows:1fr;opacity:1;visibility:visible;transition-delay:0s}
+.pc-panel.instant{transition:none!important}
+.pc-inner{min-height:0;overflow:hidden}
+.pc-card{padding:34px}
+.pc-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:24px}
+.pc-head h3{font-size:26px;color:var(--gold)}
+.pc-count{color:var(--muted);font-size:15px}
+.pc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(165px,1fr));gap:16px}
+.pcard{display:flex;flex-direction:column;gap:12px;animation:pop .45s ease both}
+.pimg{display:block;width:100%;aspect-ratio:1;padding:0;border-radius:18px;overflow:hidden;border:1px solid var(--glass-line);background:rgba(13,12,11,.4);cursor:zoom-in}
+.pimg img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.pimg:hover img{transform:scale(1.06)}
+.pcard .btn-primary{width:100%;justify-content:center;padding:10px 14px;font-size:15px;box-shadow:none}
+.pcard.ph .pimg{cursor:default;border:1px dashed rgba(227,168,38,.4);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--muted);font-size:14px}
+.pcard.ph .pimg i{font-size:28px;color:var(--gold);opacity:.7}
+.pc-cta{text-align:center;margin-top:28px}
+.pc-cta p{color:var(--muted);max-width:560px;margin:0 auto 16px}
+@keyframes pop{from{opacity:0;transform:translateY(14px)}}
+.toast{position:fixed;left:50%;bottom:92px;transform:translate(-50%,20px);z-index:2500;max-width:min(92vw,460px);padding:14px 22px;border-radius:16px;background:rgba(13,12,11,.92);border:1px solid var(--gold);color:var(--cream);font-size:15px;text-align:center;opacity:0;pointer-events:none;transition:opacity .3s,transform .3s}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:700px){
+  .pc-pill{padding:9px 16px;font-size:14px}
+  .pc-card{padding:20px}
+  .pc-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .pcard .btn-primary{padding:11px 8px;font-size:14px}
+}
+
+/* Process + Size guide */
+.process-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:32px;align-items:start}
+.timeline{list-style:none;display:flex;flex-direction:column;gap:18px;position:relative}
+.timeline::before{content:"";position:absolute;left:47px;top:34px;bottom:34px;border-left:2px dashed rgba(227,168,38,.45)}
+.t-step{display:flex;gap:18px;align-items:flex-start;padding:22px 26px;z-index:1}
+.t-num{flex:none;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--teal);color:var(--cream);font-weight:700;font-size:18px;box-shadow:0 0 0 5px rgba(31,138,156,.25)}
+.t-step h4{font-size:18px;margin-bottom:4px}
+.t-step p{font-size:15px;color:var(--muted)}
+.process-side{display:flex;flex-direction:column;gap:20px;position:sticky;top:96px}
+.max-badge{padding:30px;text-align:center;background:linear-gradient(135deg,rgba(227,168,38,.2),rgba(31,138,156,.18))}
+.max-badge small{display:block;color:var(--muted);font-size:14px}
+.max-badge strong{display:block;font-family:'Outfit',sans-serif;font-size:50px;line-height:1.15;color:var(--gold)}
+.max-badge p{color:var(--muted);font-size:14px}
+.price-note h4{font-size:18px;margin-bottom:12px}
+.price-note p{font-size:14px;color:var(--muted);margin-bottom:14px}
+.price-note .btn-primary{font-size:15px;padding:12px 24px}
+
+.scale{display:flex;align-items:flex-end;justify-content:center;flex-wrap:wrap;gap:26px 22px;padding:44px 28px 34px;margin-bottom:30px;--u:52px}
+.sq{display:flex;flex-direction:column;align-items:center;gap:10px;font-size:13px;font-weight:600;color:var(--muted)}
+.sq b{display:block;width:calc(var(--w)*var(--u));height:calc(var(--h)*var(--u));border:2px dashed var(--gold);border-radius:8px;background:linear-gradient(135deg,rgba(227,168,38,.22),rgba(31,138,156,.2))}
+.sq.custom b{border-color:var(--teal);border-style:dotted;background:transparent;display:flex;align-items:center;justify-content:center;color:var(--teal);font-size:12px;text-align:center;padding:6px}
+.size-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px}
+.size-card{padding:30px 26px}
+.size-card .category-icon{margin-bottom:16px}
+.size-card h3{font-size:20px;margin-bottom:6px}
+.size-card .dim{display:inline-block;font-family:'Outfit',sans-serif;font-weight:700;font-size:18px;color:var(--gold);margin-bottom:8px}
+.size-card p{font-size:15px;color:var(--muted)}
+.size-cta{text-align:center;margin-top:36px}
+.size-cta p{color:var(--muted);max-width:640px;margin:0 auto 20px}
+@media (max-width:992px){.process-grid{grid-template-columns:1fr}.process-side{position:static}}
+@media (max-width:700px){.scale{--u:34px;padding:30px 16px 24px}.t-step{padding:18px}.timeline::before{left:39px}}
+
+/* Features */
+/* Features */
+.feature-item{padding:32px;text-align:center}
+.feature-icon{margin:0 auto 18px}
+.feature-item h3{font-size:20px;margin-bottom:8px}
+.feature-item p{color:var(--muted);font-size:15px}
+
+.badge{position:relative;width:200px;height:200px;margin:14px}
+.foot-badge{width:84px;height:84px;margin:10px auto 26px}
+.badge img{width:100%;height:100%;border-radius:50%;box-shadow:0 12px 40px rgba(0,0,0,.5)}
+.badge::before{content:"";position:absolute;inset:-14px;border:2px dashed var(--gold);border-radius:50%;animation:spin 40s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Care guide */
+.care-section{padding:60px 40px;background:linear-gradient(135deg,rgba(31,138,156,.28),rgba(227,168,38,.18))}
+.care-content{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;position:relative;z-index:2}
+.care-text h2{font-size:32px;margin-bottom:14px}
+.care-text p{color:var(--muted);margin-bottom:22px}
+.care-list{list-style:none}
+.care-list li{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;font-size:15px}
+.care-list i{color:var(--gold);margin-top:5px}
+.pdf-box{padding:38px;text-align:center;background:rgba(13,12,11,.45)}
+.pdf-box>i{font-size:56px;color:var(--gold);margin-bottom:14px}
+.btn-pdf{padding:15px 28px;font-size:16px}
+
+/* Social */
+.social-section{text-align:center}
+.social-links{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px;max-width:760px;margin:32px auto 0}
+.social-btn{display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 18px;font-weight:600;transition:transform .25s,border-color .25s}
+.social-btn:hover{transform:translateY(-6px);border-color:var(--gold)}
+.social-btn .s-ico{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:6px;background:rgba(13,12,11,.5);border:1px solid var(--glass-line)}
+.social-btn small{color:var(--muted);font-weight:400;font-size:13px}
+.email-box{margin-top:30px;font-size:18px;color:var(--muted)}
+.email-box a{color:var(--gold);font-weight:600;text-decoration:underline}
+
+footer{padding:40px 0 20px;text-align:center;border-top:1px solid var(--glass-line)}
+.footer-slogan{font-family:'Outfit',sans-serif;font-style:italic;font-weight:500;font-size:18px;color:var(--gold);margin-bottom:18px}
+.copyright{font-size:14px;color:var(--muted)}
+
+@media (max-width:992px){
+  .hero-grid,.care-content{grid-template-columns:1fr}
+  .hero-logo{max-width:290px;margin:0 auto}
+}
+@media (max-width:600px){
+  .nav-wrapper{padding:8px 10px 8px 14px}
+  .logo{font-size:21px}.logo img{width:38px;height:38px}
+  .nav-social{gap:6px}.nav-social a{width:34px;height:34px;font-size:14px}
+    section{padding:56px 0}
+  .btn-primary{width:100%;justify-content:center}
+  .care-section{padding:40px 20px}
+  .social-links{flex-direction:column}
+  .social-btn{width:100%;justify-content:center}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+@media (max-width:700px){
+}
+/* ===== Polish: মিনিমাল, পড়তে সহজ ===== */
+:root{--muted:rgba(243,234,210,.8)}
+body{font-size:17px;line-height:1.8}
+body::before{opacity:.3}
+body::after{opacity:.18}
+.section-header{margin-bottom:44px}
+.section-title::after{content:"";display:block;width:56px;height:4px;border-radius:4px;background:var(--gold);margin:14px auto 0}
+.section-subtitle{font-size:17px}
+.glass{box-shadow:0 8px 30px rgba(0,0,0,.28),inset 0 1px 0 rgba(255,255,255,.1)}
+.social-btn.stitch::after{display:none}
+.t-step p,.size-card p,.feature-item p,.care-list li,.price-note p{font-size:16px}
+.care-section{background:linear-gradient(135deg,rgba(31,138,156,.18),rgba(227,168,38,.1))}
+@media (min-width:601px){section{padding:72px 0}.products{padding:80px 0}.hero{padding:44px 0 20px}}
+
+/* FAQ + ভাসমান বাটন */
+.faq-list{max-width:820px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+.faq-item{padding:0;overflow:hidden;transition:border-color .3s}
+.faq-item summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 26px;font-family:'Outfit','Noto Serif Bengali',serif;font-weight:600;font-size:18px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";flex:none;width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(227,168,38,.18);color:var(--gold);font-size:22px;line-height:1;transition:transform .3s}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item[open]{border-color:rgba(227,168,38,.5)}
+.faq-item p{padding:0 26px 22px;color:var(--muted);font-size:16px}
+.fab{position:fixed;right:20px;bottom:calc(20px + env(safe-area-inset-bottom,0px));z-index:1500;display:inline-flex;align-items:center;gap:10px;padding:14px 24px;border-radius:50px;background:var(--gold);color:var(--ink);font-family:'Poppins','Hind Siliguri',sans-serif;font-weight:700;font-size:16px;box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .25s,background .25s}
+.fab i{font-size:20px}
+.fab:hover{transform:translateY(-3px);background:var(--cream)}
+.fab::after{content:"";position:absolute;inset:0;border-radius:50px;border:2px solid var(--gold);animation:ping 2.4s ease-out infinite;pointer-events:none}
+@keyframes ping{to{transform:scale(1.35);opacity:0}}
+@media (max-width:600px){.fab{right:14px;padding:13px 18px;font-size:15px}footer{padding-bottom:90px}}
+
+/* Product options + PDF buttons */
+[hidden]{display:none!important}
+.pdf-btns{display:flex;flex-direction:column;gap:12px}
+.pdf-btns .btn-pdf{justify-content:center}
+.btn-pdf.alt{background:transparent;color:var(--cream);border:1.5px solid var(--gold)}
+.btn-pdf.alt:hover{background:var(--gold);color:var(--ink)}
+
+/* Lightbox (zoom) */
+.lb{position:fixed;inset:0;z-index:2000;display:none;align-items:center;justify-content:center;background:rgba(13,12,11,.9);backdrop-filter:blur(8px);padding:20px}
+.lb.open{display:flex}
+.lb-box{width:min(92vw,900px);display:flex;flex-direction:column;align-items:center;gap:14px}
+.lb-view{width:100%;max-height:72vh;overflow:auto;border-radius:18px;background:rgba(0,0,0,.3);-webkit-overflow-scrolling:touch}
+.lb-view img{display:block;margin:0 auto;max-width:100%;max-height:72vh;object-fit:contain;cursor:zoom-in}
+.lb-view.zoomed img{max-width:none;max-height:none;cursor:zoom-out}
+.lb-tools{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center}
+.lb-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--glass-line);background:rgba(243,234,210,.1);color:var(--cream);font-size:18px;cursor:pointer;transition:background .25s,color .25s}
+.lb-btn:hover{background:var(--gold);color:var(--ink)}
+.lb-zoom{min-width:56px;text-align:center;font-weight:600;color:var(--muted)}
+.lb-tools .btn-primary{font-size:15px;padding:11px 24px}
+.lb-x{position:absolute;top:14px;right:20px;font-size:36px;line-height:1;background:none;border:none;color:var(--cream);cursor:pointer}
+
+/* Real Homes: এক লাইনের কম্প্যাক্ট স্ট্রিপ */
+.proof-bar{display:flex;justify-content:flex-end;margin-bottom:12px}
+.proof-arrows{display:flex;gap:8px}
+.proof-arrows button{width:42px;height:42px;border-radius:50%;border:1px solid var(--glass-line);background:rgba(243,234,210,.1);color:var(--cream);cursor:pointer;transition:background .25s,color .25s}
+.proof-arrows button:hover{background:var(--gold);color:var(--ink)}
+.proof-strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x proximity;padding:4px 2px 14px}
+.proof-strip>*{flex:none;scroll-snap-align:start}
+.pi{position:relative;height:300px;padding:0;border:1px solid var(--glass-line);border-radius:16px;overflow:hidden;background:rgba(13,12,11,.4);cursor:zoom-in}
+.pi img{display:block;height:100%;width:auto}
+.pi .wa{position:absolute;top:8px;right:8px;width:30px;height:30px;border-radius:50%;background:#25D366;color:#fff;display:flex;align-items:center;justify-content:center;font-size:17px}
+.pi.ph{width:220px;cursor:default;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px dashed rgba(227,168,38,.4);color:var(--muted);font-size:14px;text-align:center;padding:14px}
+.pi.ph i{font-size:28px;color:var(--gold);opacity:.8}
+.pv{margin:0}
+.pv video{display:block;height:300px;width:auto;max-width:min(86vw,520px);border-radius:16px;background:#000;object-fit:contain}
+.pv figcaption{width:0;min-width:100%;padding-top:8px;font-size:14px;color:var(--muted)}
+@media (max-width:700px){.pi,.pv video{height:240px}.pi.ph{width:180px}.proof-arrows{display:none}}
+.nav-links{display:flex;gap:26px}
+.nav-links a{font-family:'Outfit','Hind Siliguri',sans-serif;font-weight:600;font-size:15px;color:var(--muted);transition:color .25s}
+.nav-links a:hover{color:var(--gold)}
+section[id]{scroll-margin-top:100px}
+@media (max-width:992px){.nav-links{display:none}}
+.price-note{padding:26px}
+.hero-shots{display:grid;grid-template-columns:repeat(var(--n,4),1fr);gap:14px;margin-top:36px}
+.hero-shots button{padding:0;border:1px solid var(--glass-line);border-radius:18px;overflow:hidden;aspect-ratio:4/3;cursor:zoom-in;background:rgba(13,12,11,.4)}
+.hero-shots img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s}
+.hero-shots button:hover img{transform:scale(1.06)}
+@media (max-width:700px){.hero-shots{grid-template-columns:repeat(2,1fr);gap:10px}}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-wrapper glass">
+    <a href="#" class="logo"><img src="fk%20logo%20circle.png" alt="Fifth Knot লোগো"><span class="wordmark">Fifth <span>Knot</span></span></a>
+    <nav class="nav-links" aria-label="মেনু">
+      <a href="#products">প্রোডাক্ট</a><a href="#process">অর্ডার প্রসেস</a><a href="#size-guide">সাইজ গাইড</a><a href="#faq">FAQ</a>
+    </nav>
+    <div class="nav-right">
+      <div class="nav-social">
+        <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a href="https://www.instagram.com/fifth_knot" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://www.tiktok.com/@fifth.knot" target="_blank" rel="noopener" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-grid">
+    <div class="hero-text">
+      <span class="hero-tag glass">🧶 চট্টগ্রামের ১ম কাস্টম টাফটেড রাগ ব্র্যান্ড</span>
+      <h1 class="hero-title wordmark">Fifth Knot</h1>
+      <p class="hero-tagline">Bringing your art to life, knot by knot.</p>
+      <p class="hero-bio">আপনার ঘর, অফিস বা নিজের ব্র্যান্ডের জন্য আমরা হাতে তৈরি করি প্রিমিয়াম কাস্টম রাগ: ব্র্যান্ড লোগো, এনিমে ও গেমিং, ফুটবল, টাইপোগ্রাফি, ওয়াল, মিরর, ডেস্ক ও কোস্টার।</p>
+      <a href="https://www.facebook.com/messages/t/61589599850222" target="_blank" rel="noopener" class="btn-primary">
+        <i class="fa-brands fa-facebook"></i> কাস্টম অর্ডার করুন
+      </a>
+    </div>
+    <div class="hero-logo glass stitch">
+      <img src="fk%20logo.jpg" alt="Fifth Knot — সুতার বুননে তৈরি লোগো, মুকুট ও টাফটিং গান সহ">
+    </div>
+  </div>
+  <div class="container"><div class="hero-shots" id="hero-shots" hidden></div></div>
+</section>
+
+<div class="ticker" aria-hidden="true">
+  <div class="ticker-track"><span class="chip"><i class="fa-solid fa-wand-magic-sparkles"></i>Custom Orders</span><span class="chip"><i class="fa-solid fa-stamp"></i>Custom Logo Rugs</span><span class="chip"><i class="fa-solid fa-briefcase"></i>Business Logo Rugs</span><span class="chip"><i class="fa-solid fa-mobile-screen"></i>Mobile Branding Rugs</span><span class="chip"><i class="fa-solid fa-gamepad"></i>Anime &amp; Gaming</span><span class="chip"><i class="fa-solid fa-font"></i>Typography</span><span class="chip"><i class="fa-solid fa-palette"></i>Wall Art</span><span class="chip"><i class="fa-solid fa-gem"></i>Mirror Frames</span><span class="chip"><i class="fa-solid fa-wand-magic-sparkles"></i>Custom Orders</span><span class="chip"><i class="fa-solid fa-stamp"></i>Custom Logo Rugs</span><span class="chip"><i class="fa-solid fa-briefcase"></i>Business Logo Rugs</span><span class="chip"><i class="fa-solid fa-mobile-screen"></i>Mobile Branding Rugs</span><span class="chip"><i class="fa-solid fa-gamepad"></i>Anime &amp; Gaming</span><span class="chip"><i class="fa-solid fa-font"></i>Typography</span><span class="chip"><i class="fa-solid fa-palette"></i>Wall Art</span><span class="chip"><i class="fa-solid fa-gem"></i>Mirror Frames</span></div>
+  <div class="ticker-track rev"><span class="chip"><i class="fa-solid fa-desktop"></i>Desk Mats</span><span class="chip"><i class="fa-solid fa-circle-dot"></i>Coasters</span><span class="chip"><i class="fa-solid fa-couch"></i>Home Decor Rugs</span><span class="chip"><i class="fa-solid fa-heart"></i>Couple Gifts</span><span class="chip"><i class="fa-solid fa-futbol"></i>Sports &amp; Football</span><span class="chip"><i class="fa-solid fa-signature"></i>Name Rugs</span><span class="chip"><i class="fa-solid fa-mug-hot"></i>Cafe &amp; Shop Branding</span><span class="chip"><i class="fa-solid fa-gift"></i>Gift Rugs</span><span class="chip"><i class="fa-solid fa-desktop"></i>Desk Mats</span><span class="chip"><i class="fa-solid fa-circle-dot"></i>Coasters</span><span class="chip"><i class="fa-solid fa-couch"></i>Home Decor Rugs</span><span class="chip"><i class="fa-solid fa-heart"></i>Couple Gifts</span><span class="chip"><i class="fa-solid fa-futbol"></i>Sports &amp; Football</span><span class="chip"><i class="fa-solid fa-signature"></i>Name Rugs</span><span class="chip"><i class="fa-solid fa-mug-hot"></i>Cafe &amp; Shop Branding</span><span class="chip"><i class="fa-solid fa-gift"></i>Gift Rugs</span></div>
+</div>
+
+<section class="products" id="products">
+  <div class="container wide">
+    <div class="section-header">
+      <h2 class="section-title">আমরা যে সব প্রোডাক্ট নিয়ে কাজ করি</h2>
+      <p class="section-subtitle">ব্র্যান্ড লোগো, এনিমে ও গেমিং থেকে ডেস্ক ম্যাট, কোস্টার ও ওয়াল রাগ পর্যন্ত, সবই হাতে টাফটিং করে বানানো হয়। একটি ক্যাটাগরি বেছে নিন, তারপর পছন্দের ডিজাইনে সরাসরি ইনবক্সে অর্ডার করুন।</p>
+    </div>
+    <!-- ক্যাটাগরি বার: বাটনগুলো নিচের স্ক্রিপ্টের CATEGORIES তালিকা থেকে নিজে তৈরি হয়। নতুন ক্যাটাগরি যোগ করতে ওই তালিকায় একটা লাইন যোগ করুন। -->
+    <div class="pc-bar" id="pc-bar" role="tablist" aria-label="প্রোডাক্ট ক্যাটাগরি"></div>
+    <p class="pc-hint" id="pc-hint">কোনো ক্যাটাগরিতে ট্যাপ করলে সেই ক্যাটাগরির কাজ নিচে দেখা যাবে।</p>
+    <div class="pc-panel" id="pc-panel" aria-live="polite">
+      <div class="pc-inner">
+        <div class="pc-card glass">
+          <div class="pc-head"><h3 id="pc-title"></h3><span class="pc-count" id="pc-count"></span></div>
+          <div class="pc-grid" id="pc-grid"></div>
+          <div class="pc-cta" id="pc-cta" hidden>
+            <p>এই ক্যাটাগরির কাজ দেখতে বা নিজের মতো কাস্টম ডিজাইন চাইলে ইনবক্সে মেসেজ করুন।</p>
+            <button type="button" class="btn-primary" id="pc-cta-btn"><i class="fa-brands fa-facebook-messenger"></i> ইনবক্সে মেসেজ করুন</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<a href="https://www.facebook.com/messages/t/61589599850222" target="_blank" rel="noopener" class="fab" aria-label="ফেসবুক ইনবক্সে মেসেজ করুন"><i class="fa-brands fa-facebook-messenger"></i><span>মেসেজ করুন</span></a>
+
+<div class="lb" id="lb" role="dialog" aria-modal="true" aria-label="ছবি বড় করে দেখুন">
+  <div class="lb-box">
+    <div class="lb-view" id="lb-view"><img id="lb-img" alt=""></div>
+    <div class="lb-tools">
+      <button type="button" class="lb-btn" id="lb-out" aria-label="ছোট করুন"><i class="fa-solid fa-magnifying-glass-minus"></i></button>
+      <span class="lb-zoom" id="lb-zoom">১০০%</span>
+      <button type="button" class="lb-btn" id="lb-in" aria-label="বড় করুন"><i class="fa-solid fa-magnifying-glass-plus"></i></button>
+      <button type="button" class="btn-primary" id="lb-order"><i class="fa-brands fa-facebook-messenger"></i> অর্ডার করুন</button>
+    </div>
+  </div>
+  <button class="lb-x" aria-label="বন্ধ করুন">&times;</button>
+</div>
+<div class="toast" id="toast" role="status"></div>
+
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">কাস্টমাইজেশন ও অর্ডার প্রসেস</h2>
+      <p class="section-subtitle">ডিজাইন পাঠানো থেকে ডেলিভারি পর্যন্ত ছয়টি সহজ ধাপ।</p>
+    </div>
+    <div class="process-grid">
+      <ol class="timeline">
+        <li class="t-step glass"><span class="t-num">১</span><div><h4>ডিজাইন পাঠান</h4><p>আমাদের ফেসবুক পেজের ইনবক্সে আপনার ছবি, স্কেচ বা লোগো পাঠান।</p></div></li>
+        <li class="t-step glass"><span class="t-num">২</span><div><h4>জায়গার মাপ জানান</h4><p>রাগ যেখানে বসবে সেই জায়গার লম্বা ও চওড়া ফুটে জানান। সাইজ নিয়ে দ্বিধা থাকলে নিচের সাইজ গাইড দেখুন।</p></div></li>
+        <li class="t-step glass"><span class="t-num">৩</span><div><h4>সাইজ ও প্রাইস নিশ্চিত করুন</h4><p>আপনার মাপ ও ডিজাইন নিয়ে ইনবক্সে আলোচনা করে সাইজ ও প্রাইস চূড়ান্ত করা হয়।</p></div></li>
+        <li class="t-step glass"><span class="t-num">৪</span><div><h4>৩০% অগ্রিম পেমেন্ট</h4><p>অগ্রিম পেমেন্টের পর অর্ডার কনফার্ম হয়। পেমেন্টের বিস্তারিত ইনবক্সে জানানো হয়।</p></div></li>
+        <li class="t-step glass"><span class="t-num">৫</span><div><h4>হাতে তৈরি</h4><p>পুরোটা হাতে টাফটিং ও ফিনিশিং করে রাগ তৈরি করা হয়।</p></div></li>
+        <li class="t-step glass"><span class="t-num">৬</span><div><h4>ডেলিভারি</h4><p>নিরাপদে প্যাক করে আপনার ঠিকানায় পৌঁছে দেওয়া হয়। সাধারণত ৭-৮ দিন সময় লাগে।</p></div></li>
+      </ol>
+      <aside class="process-side">
+        <div class="max-badge glass stitch"><small>সর্বোচ্চ সাইজ</small><strong>৩ × ৩ ফুট</strong></div>
+        <div class="price-note glass">
+          <h4>প্রাইস সম্পর্কে</h4>
+          <p>প্রাইস সাইজ ও ডিজাইনের ওপর নির্ভর করে। ইনবক্সে আমাদের সাথে আলোচনা করে প্রাইস জেনে নিন।</p>
+          <a href="https://www.facebook.com/messages/t/61589599850222" target="_blank" rel="noopener" class="btn-primary"><i class="fa-brands fa-facebook-messenger"></i> ইনবক্সে যোগাযোগ করুন</a>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sizes" id="size-guide">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">রাগ সাইজ গাইড</h2>
+      <p class="section-subtitle">ব্যবহার অনুযায়ী সঠিক সাইজ বেছে নিন। সব মাপ ফুটে দেওয়া হয়েছে।</p>
+    </div>
+    <div class="scale glass stitch" role="img" aria-label="রাগ সাইজের তুলনামূলক চিত্র">
+      <div class="sq"><b style="--w:1;--h:1"></b>১×১ বা ছোট</div>
+      <div class="sq"><b style="--w:2.5;--h:1.5"></b>১.৫×২.৫</div>
+      <div class="sq"><b style="--w:2;--h:2"></b>২×২</div>
+      <div class="sq"><b style="--w:3;--h:2"></b>২×৩</div>
+      <div class="sq"><b style="--w:3;--h:3"></b>৩×৩</div>
+      <div class="sq custom"><b style="--w:3;--h:3">আপনার<br>মাপ</b>কাস্টম</div>
+    </div>
+    <div class="size-grid">
+      <div class="size-card glass"><div class="category-icon"><i class="fa-solid fa-circle-dot"></i></div><h3>মিনি অ্যাকসেন্ট / কোস্টার</h3><span class="dim">১×১ ফুট বা ছোট</span><p>কোস্টার ও ছোট অ্যাকসেন্ট পিসের জন্য।</p></div>
+      <div class="size-card glass"><div class="category-icon"><i class="fa-solid fa-keyboard"></i></div><h3>ডেস্ক / কিবোর্ড রাগ</h3><span class="dim">প্রায় ১.৫×২.৫ ফুট</span><p>ডেস্ক ম্যাট ও কিবোর্ড রাগের জন্য। সামান্য কম-বেশিও করা যায়।</p></div>
+      <div class="size-card glass"><div class="category-icon"><i class="fa-solid fa-expand"></i></div><h3>স্ট্যান্ডার্ড রাগ</h3><span class="dim">২×২, ২×৩ বা ৩×৩ ফুট</span><p>ফ্লোর ও দেয়ালের জন্য রেডি সাইজ।</p></div>
+      <div class="size-card glass"><div class="category-icon"><i class="fa-solid fa-ruler-combined"></i></div><h3>কাস্টম সাইজ</h3><span class="dim">৩×৩ ফুটের মধ্যে</span><p>আপনার জায়গার মাপ অনুযায়ী তৈরি। প্রাইস সাইজ ও ডিজাইনের ওপর নির্ভর করে, যা ইনবক্সে আলোচনা করে ঠিক করা হয়।</p></div>
+    </div>
+    <div class="size-cta">
+      <p>সাইজ নিয়ে দ্বিধায় আছেন? জায়গার মাপ জানান, আমরা সঠিক সাইজ সাজেস্ট করব।</p>
+      <a href="https://www.facebook.com/messages/t/61589599850222" target="_blank" rel="noopener" class="btn-primary"><i class="fa-brands fa-facebook-messenger"></i> সাইজ জানতে ইনবক্স করুন</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">কেন আমাদের রাগ বেছে নেবেন?</h2>
+      <p class="section-subtitle">আমাদের প্রতিটি প্রোডাক্টের মেটেরিয়াল ও ফিনিশিংয়ে থাকে সর্বোচ্চ গুণগত মান।</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item glass"><div class="feature-icon"><i class="fa-solid fa-feather-pointed"></i></div><h3>১০০% মিল্ক কটন ইয়ার্ন</h3><p>অত্যন্ত নরম ও আরামদায়ক, প্রিমিয়াম মানের সুতায় তৈরি।</p></div>
+      <div class="feature-item glass"><div class="feature-icon"><i class="fa-solid fa-wand-magic-sparkles"></i></div><h3>প্রিমিয়াম ফিনিশিং</h3><p>নিখুঁত কাটিং, কার্ভিং এবং নান্দনিক শেইপিংয়ের মাধ্যমে চমৎকার লুক।</p></div>
+      <div class="feature-item glass"><div class="feature-icon"><i class="fa-solid fa-shield-halved"></i></div><h3>লং-লাস্টিং ডিউরেবিলিটি</h3><p>শক্তিশালী ব্যাকিং ও টেকসই সুতার কারণে দীর্ঘদিন নতুনত্বের উজ্জ্বলতা বজায় থাকে।</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="proof" id="real-homes">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">Fifth Knot in Real Homes</h2>
+      <p class="section-subtitle">কাস্টমারদের ঘরে আমাদের রাগ, আর তাঁদের নিজেদের কথা।</p>
+    </div>
+    <div class="proof-bar">
+      <div class="proof-arrows">
+        <button type="button" id="pa-prev" aria-label="আগেরটা"><i class="fa-solid fa-chevron-left"></i></button>
+        <button type="button" id="pa-next" aria-label="পরেরটা"><i class="fa-solid fa-chevron-right"></i></button>
+      </div>
+    </div>
+    <div class="proof-strip" id="proof-strip"></div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">FAQ: আপনার প্রশ্ন, আমাদের উত্তর</h2>
+      <p class="section-subtitle">অর্ডারের আগে যা জানা দরকার।</p>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item glass" open><summary>অর্ডার কীভাবে করব?</summary><p>আমাদের ফেসবুক পেজের ইনবক্সে আপনার ডিজাইন (ছবি, স্কেচ বা লোগো) আর জায়গার মাপ পাঠান। বাকি প্রক্রিয়া ইনবক্সেই এগিয়ে নেওয়া হবে।</p></details>
+      <details class="faq-item glass"><summary>সর্বোচ্চ কত বড় রাগ বানানো যায়?</summary><p>আমাদের সর্বোচ্চ সাইজ ৩×৩ ফুট।</p></details>
+      <details class="faq-item glass"><summary>আমার জায়গার মাপ অনুযায়ী সাইজ করা যাবে?</summary><p>হ্যাঁ। ৩×৩ ফুটের মধ্যে ডেস্ক, ফ্লোর বা দেয়ালের মাপ জানালে সেই অনুযায়ী মেপে বানিয়ে দেওয়া হয়। রেডি সাইজ দেখতে ওপরের সাইজ গাইড দেখুন।</p></details>
+      <details class="faq-item glass"><summary>প্রাইস কত?</summary><p>প্রাইস সাইজ ও ডিজাইনের ওপর নির্ভর করে, তাই ইনবক্সে আলোচনা করে জানানো হয়।</p></details>
+      <details class="faq-item glass"><summary>অগ্রিম ও পেমেন্ট কীভাবে করব?</summary><p>অর্ডার কনফার্ম করতে ৩০% অগ্রিম দিতে হয়। পেমেন্টের বিস্তারিত ইনবক্সে জানানো হয়।</p></details>
+      <details class="faq-item glass"><summary>ডেলিভারি পেতে কত দিন লাগে?</summary><p>সাধারণত ৭-৮ দিন সময় লাগে। নিরাপদে প্যাক করে হোম ডেলিভারি দেওয়া হয়।</p></details>
+      <details class="faq-item glass"><summary>রাগের যত্ন কীভাবে নেব?</summary><p>ওয়াশিং মেশিনে ধোবেন না, ঘষবেন না, ছায়ায় শুকান। পুরো নিয়ম নিচের কেয়ার গাইডে (বাংলা ও ইংরেজি PDF) পাবেন।</p></details>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="container">
+    <div class="care-section glass">
+      <div class="care-content">
+        <div class="care-text">
+          <h2>প্রোডাক্ট কেয়ার গাইডলাইন</h2>
+          <p>আপনার তৈরি কাস্টম রাগটি দীর্ঘদিন সুন্দর ও টেকসই রাখার সহজ নিয়মাবলী:</p>
+          <ul class="care-list">
+            <li><i class="fa-solid fa-check"></i><span><strong>ধুলোবালি পরিষ্কার:</strong> হালকা ব্রাশ বা কম পাওয়ারের ভ্যাকিউম ব্যবহার করুন।</span></li>
+            <li><i class="fa-solid fa-check"></i><span><strong>স্পট ক্লিনিং:</strong> দাগ লাগলে ঘষবেন না। ঠান্ডা পানি ও হালকা সাবানে ভেজানো নরম কাপড়ে চেপে চেপে লাগান, তারপর ছায়ায় শুকান।</span></li>
+            <li><i class="fa-solid fa-xmark" style="color:#ff8a8a"></i><span><strong>সাবধানতা:</strong> ওয়াশিং মেশিনে ধোবেন না বা অতিরিক্ত ভেজাবেন না।</span></li>
+          </ul>
+        </div>
+        <div class="pdf-box glass">
+          <i class="fa-solid fa-file-lines"></i>
+          <h3 style="margin-bottom:10px;font-size:22px">সম্পূর্ণ গাইড পান</h3>
+          <p style="margin-bottom:20px;font-size:14px;color:var(--muted)">যে ভাষায় সুবিধা, সেই ভাষায় যত্ন নির্দেশিকা ডাউনলোড করুন।</p>
+          <div class="pdf-btns">
+            <a class="btn-pdf" href="Fifth_Knot_Rug_Wash_Guide_bangla.pdf" download><i class="fa-solid fa-download"></i> বাংলা গাইড (PDF)</a>
+            <a class="btn-pdf alt" href="Fifth_Knot_Rug_Wash_Guide_English.pdf" download><i class="fa-solid fa-download"></i> English Guide (PDF)</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="social-section" style="padding-top:0">
+  <div class="container">
+    <h2 class="section-title">আমাদের সাথে থাকুন</h2>
+    <p class="section-subtitle">নতুন কাজ আর আপডেট দেখতে আমাদের ফলো করুন।</p>
+    <div class="social-links">
+      <a href="https://www.facebook.com/share/1P86pUCsGU/" target="_blank" rel="noopener" class="social-btn glass stitch"><span class="s-ico"><i class="fa-brands fa-facebook" style="color:#4c9bff"></i></span>Facebook<small>Fifth Knot</small></a>
+      <a href="https://www.instagram.com/fifth_knot" target="_blank" rel="noopener" class="social-btn glass stitch"><span class="s-ico"><i class="fa-brands fa-instagram" style="color:#ff6b8b"></i></span>Instagram<small>@fifth_knot</small></a>
+      <a href="https://www.tiktok.com/@fifth.knot" target="_blank" rel="noopener" class="social-btn glass stitch"><span class="s-ico"><i class="fa-brands fa-tiktok" style="color:var(--cream)"></i></span>TikTok<small>@fifth.knot</small></a>
+    </div>
+    <div class="email-box">
+      <i class="fa-solid fa-envelope" style="color:var(--gold)"></i> ইমেইল ঠিকানা:
+      <a href="mailto:fifthknotofficial@gmail.com">fifthknotofficial@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="badge foot-badge"><img src="fk%20logo%20circle.png" alt="Fifth Knot লোগো"></div>
+    <p class="footer-slogan">Fifth Knot — Bringing your art to life, knot by knot.</p>
+    <div class="copyright">© 2026 Fifth Knot. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+/* ===== শেয়ার্ড: ছবি খোঁজা (1,2,3...) + জুম লাইটবক্স ===== */
+window.FK=(function(){
+  const EXTS=['jpg','jpeg','png','webp','JPG','JPEG','PNG','WEBP'];
+  const probe=src=>new Promise(r=>{const i=new Image();i.onload=()=>r(src);i.onerror=()=>r(null);i.src=src;});
+  async function find(folder,max){
+    const out=[];
+    for(let n=1;n<=(max||60);n++){
+      let hit=null;
+      for(const e of EXTS){hit=await probe(folder+n+'.'+e);if(hit)break;}
+      if(!hit)break;
+      out.push(hit);
+    }
+    return out;
+  }
+  const $=id=>document.getElementById(id);
+  const lb=$('lb'),view=$('lb-view'),img=$('lb-img'),zoomEl=$('lb-zoom'),orderBtn=$('lb-order');
+  const LEVELS=[1,1.5,2,3];let z=0,base=0,onOrder=null;
+  function bn(n){return n.toLocaleString('bn-BD');}
+  function apply(){
+    const k=LEVELS[z];
+    if(k===1){view.classList.remove('zoomed');img.style.width='';}
+    else{view.classList.add('zoomed');img.style.width=(base*k)+'px';}
+    zoomEl.textContent=bn(Math.round(k*100))+'%';
+    view.scrollLeft=(view.scrollWidth-view.clientWidth)/2;view.scrollTop=(view.scrollHeight-view.clientHeight)/2;
+  }
+  function openLb(src,orderFn){
+    z=0;onOrder=orderFn||null;orderBtn.hidden=!onOrder;
+    view.classList.remove('zoomed');img.style.width='';zoomEl.textContent=bn(100)+'%';
+    img.onload=()=>{base=img.clientWidth;};
+    img.src=src;lb.classList.add('open');
+  }
+  const close=()=>lb.classList.remove('open');
+  const zin=()=>{if(z<LEVELS.length-1){if(z===0)base=img.clientWidth;z++;apply();}};
+  const zout=()=>{if(z>0){z--;apply();}};
+  $('lb-in').onclick=zin;$('lb-out').onclick=zout;
+  img.onclick=()=>{if(z===0)zin();else{z=0;apply();}};
+  orderBtn.onclick=()=>{const f=onOrder;close();if(f)f();};
+  lb.onclick=e=>{if(e.target===lb||e.target.closest('.lb-x'))close();};
+  document.addEventListener('keydown',e=>{
+    if(!lb.classList.contains('open'))return;
+    if(e.key==='Escape')close();else if(e.key==='+'||e.key==='=')zin();else if(e.key==='-')zout();
+  });
+  return {find,openLb};
+})();
+</script>
+<script>
+/* ===== প্রোডাক্ট ক্যাটাগরি সেকশন =====
+   নতুন ক্যাটাগরি: নিচের CATEGORIES তালিকায় একটা লাইন যোগ করুন: ['দেখানোর নাম','ফোল্ডারের-নাম'],
+   ছবি: images/products/<ফোল্ডারের-নাম>/1.jpg, 2.jpg, 3.jpg ... (নম্বরে ফাঁক রাখবেন না; jpg/jpeg/png/webp চলবে) */
+(function(){
+  const MESSENGER_LINK='https://www.facebook.com/messages/t/61589599850222';
+  const BASE='images/products/';
+  const CATEGORIES=[
+    ['Custom Rugs','custom-rugs'],
+    ['Mirror Rugs','mirror-rugs'],
+    ['Desk & Keyboard Rugs','desk-keyboard-rugs'],
+    ['Anime Rugs','anime-rugs'],
+    ['Gaming / Cartoon Rugs','gaming-cartoon-rugs'],
+    ['Coaster / Mug Rugs','coaster-mug-rugs'],
+    ['Football Rugs','football-rugs'],
+    ['Wall Rugs','wall-rugs'],
+    ['Typography / Name Rugs','typography-name-rugs'],
+    ['Brand Logo Rugs','brand-logo-rugs'],
+    ['Abstract / Geometric Rugs','abstract-geometric-rugs']
+    /* ▼ নতুন ক্যাটাগরি এখানে যোগ করুন (আগের লাইনের শেষে কমা দিয়ে) ▼ */
+  ];
+  const cache={};
+  const $=id=>document.getElementById(id);
+  const bar=$('pc-bar'),hint=$('pc-hint'),panel=$('pc-panel'),grid=$('pc-grid'),titleEl=$('pc-title'),countEl=$('pc-count'),cta=$('pc-cta'),toastEl=$('toast');
+  let active=-1,ordered=false;
+
+  function toast(t){toastEl.textContent=t;toastEl.classList.add('show');clearTimeout(toast.t);toast.t=setTimeout(()=>toastEl.classList.remove('show'),4500);}
+  function fallbackCopy(t){const a=document.createElement('textarea');a.value=t;a.style.cssText='position:fixed;opacity:0';document.body.appendChild(a);a.select();try{document.execCommand('copy');}catch(e){}a.remove();}
+  function copy(t){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).catch(()=>fallbackCopy(t));}else{fallbackCopy(t);}}
+
+  /* অর্ডার: মেসেজ কপি হয়, তারপর সরাসরি Messenger খোলে */
+  function order(src){
+    ordered=true;
+    const name=CATEGORIES[active][0];
+    const link=src?new URL(src,document.baseURI).href:'';
+    const msg='আসসালামু আলাইকুম, আমি Fifth Knot-এর "'+name+'" ক্যাটাগরির '+(src?'এই ডিজাইনটি':'কাস্টম ডিজাইন')+' অর্ডার করতে চাই।'+(link?'\nডিজাইন: '+link:'');
+    copy(msg);
+    window.open(MESSENGER_LINK,'_blank','noopener');
+    toast('মেসেজ কপি হয়েছে। Messenger-এ পেস্ট করে পাঠিয়ে দিন।');
+  }
+
+  function placeholders(n,text){
+    grid.innerHTML='';
+    for(let i=0;i<n;i++){
+      const c=document.createElement('div');c.className='pcard ph';c.style.animationDelay=i*50+'ms';
+      c.innerHTML='<div class="pimg"><i class="fa-regular fa-image"></i>'+(text?'<span>'+text+'</span>':'')+'</div>';
+      grid.appendChild(c);
+    }
+  }
+  function closePanel(){
+    active=-1;
+    pills.forEach(p=>{p.classList.remove('active');p.setAttribute('aria-selected','false');});
+    panel.classList.remove('open');hint.hidden=false;
+  }
+  async function select(i){
+    if(i===active){closePanel();return;}
+    active=i;ordered=false;
+    pills.forEach((p,k)=>{p.classList.toggle('active',k===i);p.setAttribute('aria-selected',k===i?'true':'false');});
+    const name=CATEGORIES[i][0],key=BASE+CATEGORIES[i][1]+'/';
+    titleEl.textContent=name;countEl.textContent='';cta.hidden=true;hint.hidden=true;
+    placeholders(4,'');
+    panel.classList.add('open');
+    if(window.innerWidth<700)panel.scrollIntoView({behavior:'smooth',block:'start'});
+    if(!cache[key])cache[key]=await FK.find(key);
+    if(active!==i)return;
+    const imgs=cache[key];
+    if(!imgs.length){placeholders(4,'ছবি শিগগিরই আসছে');cta.hidden=false;return;}
+    countEl.textContent=imgs.length.toLocaleString('bn-BD')+' টি ডিজাইন';
+    grid.innerHTML='';
+    imgs.forEach((src,k)=>{
+      const card=document.createElement('div');card.className='pcard';card.style.animationDelay=Math.min(k,12)*40+'ms';
+      const b=document.createElement('button');b.type='button';b.className='pimg';b.setAttribute('aria-label',name+' ডিজাইন '+(k+1)+' বড় করে দেখুন');
+      const im=document.createElement('img');im.loading='lazy';im.alt=name+' '+(k+1);im.src=src;b.appendChild(im);
+      b.onclick=()=>FK.openLb(src,()=>order(src));
+      const o=document.createElement('button');o.type='button';o.className='btn-primary';
+      o.innerHTML='<i class="fa-brands fa-facebook-messenger"></i> অর্ডার করুন';
+      o.onclick=()=>order(src);
+      card.append(b,o);grid.appendChild(card);
+    });
+  }
+
+  const pills=CATEGORIES.map(([name],i)=>{
+    const b=document.createElement('button');b.type='button';b.className='pc-pill';b.setAttribute('role','tab');b.setAttribute('aria-selected','false');
+    b.textContent=name;b.onclick=()=>select(i);bar.appendChild(b);return b;
+  });
+  $('pc-cta-btn').onclick=()=>order('');
+
+  /* অর্ডার না করে স্ক্রল করে নিচে চলে গেলে, স্ক্রল থামার পর ছবির অংশ নিজে গুটিয়ে যায়।
+     লাফ বন্ধ করতে: গুটানোর আগে-পরে নিচের সেকশনের অবস্থান মেপে ঠিক ততটুকু স্ক্রল মিলিয়ে দেওয়া হয়।
+     স্মুথ স্ক্রল চালুই থাকে, শুধু ওই এক মুহূর্তের মিলানোর সময় সাময়িক বন্ধ থাকে। */
+  const ref=$('process');let idle;
+  function maybeHide(){
+    if(!panel.classList.contains('open')||ordered)return;
+    if(panel.getBoundingClientRect().bottom>=0)return;
+    const root=document.documentElement,before=ref.getBoundingClientRect().top;
+    root.style.overflowAnchor='none';root.style.scrollBehavior='auto';
+    panel.classList.add('instant');
+    closePanel();
+    const diff=ref.getBoundingClientRect().top-before;
+    if(diff)window.scrollBy(0,diff);
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{panel.classList.remove('instant');root.style.overflowAnchor='';root.style.scrollBehavior='';}));
+  }
+  window.addEventListener('scroll',()=>{clearTimeout(idle);idle=setTimeout(maybeHide,180);},{passive:true});
+})();
+</script>
+<script>
+/* ===== Real Homes: কাস্টমারের ছবি, ভিডিও ও মতামত (সব একই সেকশনে, এক লাইনে) =====
+   কাস্টমারের ঘরে তোলা ছবি:       images/real-homes/1.jpg, 2.jpg ...
+   ভিডিও (mp4 বা webm):           videos/1.mp4, videos/2.mp4 ...
+   WhatsApp মতামতের স্ক্রিনশট:     images/feedback/1.jpg, 2.jpg ...
+   নম্বরে ফাঁক রাখবেন না। দেখানোর ক্রম: ছবি, তারপর ভিডিও, তারপর স্ক্রিনশট।
+   ভিডিওর নিচে লেখা চাইলে VIDEO_CAPTIONS-এ লিখুন (১ম ভিডিওর জন্য ১ম লাইন, ইত্যাদি); ফাঁকা রাখলে কিছু দেখাবে না। */
+(function(){
+  const VIDEO_CAPTIONS=[];
+  const $=id=>document.getElementById(id);
+  const strip=$('proof-strip');
+  const slide=d=>strip.scrollBy({left:d*strip.clientWidth*0.8,behavior:'smooth'});
+  $('pa-prev').onclick=()=>slide(-1);$('pa-next').onclick=()=>slide(1);
+
+  const VEXTS=['mp4','webm','MP4','WEBM'];
+  function probeVideo(src){
+    return new Promise(r=>{
+      const v=document.createElement('video');v.preload='metadata';v.playsInline=true;
+      let done=false;const end=ok=>{if(done)return;done=true;clearTimeout(t);r(ok?v:null);};
+      const t=setTimeout(()=>end(false),6000);
+      v.onloadedmetadata=()=>end(true);v.onerror=()=>end(false);
+      v.src=src+'#t=0.1';
+    });
+  }
+  async function getVideos(){
+    const out=[];
+    for(let n=1;n<=12;n++){
+      let v=null;
+      for(const e of VEXTS){v=await probeVideo('videos/'+n+'.'+e);if(v)break;}
+      if(!v)break;
+      out.push(v);
+    }
+    return out;
+  }
+  function imageItem(src,label,i,badge){
+    const b=document.createElement('button');b.type='button';b.className='pi';b.setAttribute('aria-label',label+' '+(i+1)+' বড় করে দেখুন');
+    const im=document.createElement('img');im.loading='lazy';im.alt=label+' '+(i+1);im.src=src;b.appendChild(im);
+    if(badge){const w=document.createElement('span');w.className='wa';w.innerHTML='<i class="fa-brands fa-whatsapp"></i>';b.appendChild(w);}
+    b.onclick=()=>FK.openLb(src);
+    return b;
+  }
+  function videoItem(v,i){
+    v.controls=true;
+    const f=document.createElement('figure');f.className='pv';f.appendChild(v);
+    if(VIDEO_CAPTIONS[i]){const c=document.createElement('figcaption');c.textContent=VIDEO_CAPTIONS[i];f.appendChild(c);}
+    return f;
+  }
+  (async function(){
+    const [photos,videos,shots]=await Promise.all([FK.find('images/real-homes/'),getVideos(),FK.find('images/feedback/')]);
+    photos.forEach((src,i)=>strip.appendChild(imageItem(src,'কাস্টমারের ঘরে Fifth Knot রাগ',i,false)));
+    videos.forEach((v,i)=>strip.appendChild(videoItem(v,i)));
+    shots.forEach((src,i)=>strip.appendChild(imageItem(src,'কাস্টমারের মতামত',i,true)));
+    if(!strip.children.length){
+      for(let i=0;i<3;i++){
+        const d=document.createElement('div');d.className='pi ph';
+        d.innerHTML='<i class="fa-regular fa-image"></i><span>কাস্টমারদের ছবি, ভিডিও ও মতামত এখানে দেখা যাবে</span>';strip.appendChild(d);
+      }
+    }
+  })();
+})();
+</script>
+
+<script>
+/* ===== হিরোর নিচে সেরা কাজের ছবি: images/hero/1.jpg ... সর্বোচ্চ ৪টা (না দিলে এই অংশ দেখাবে না) ===== */
+(async function(){
+  const el=document.getElementById('hero-shots');
+  const imgs=(await FK.find('images/hero/',4)).slice(0,4);
+  if(!imgs.length)return;
+  imgs.forEach((src,i)=>{
+    const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','আমাদের কাজ '+(i+1)+' বড় করে দেখুন');
+    const im=document.createElement('img');im.alt='Fifth Knot-এর কাজ '+(i+1);im.src=src;b.appendChild(im);
+    b.onclick=()=>FK.openLb(src);el.appendChild(b);
+  });
+  el.style.setProperty('--n',imgs.length);el.hidden=false;
+})();
+/* ===== স্ক্রল করলে সেকশন ধীরে ফুটে ওঠে ===== */
+(function(){
+  if(!('IntersectionObserver' in window))return;
+  const items=[...document.querySelectorAll('section:not(.hero) > .container, footer > .container')];
+  items.forEach(el=>el.classList.add('reveal'));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:0.06});
+  items.forEach(el=>io.observe(el));
+})();
+</script>
+</body>
+</html>
